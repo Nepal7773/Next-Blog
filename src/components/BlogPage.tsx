@@ -18,6 +18,7 @@ import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import { InstagramIcon, InstapaperShareButton, TwitterIcon, TwitterShareButton, WhatsappIcon, WhatsappShareButton } from 'next-share';
 import { BiComment, BiHeart, BiLoader } from 'react-icons/bi';
 import Link from 'next/link';
+import Image from 'next/image';
 
 
 function isElementInViewport(element: HTMLElement) {
@@ -141,8 +142,8 @@ export default function BlogPage({ slug }: { slug: string }) {
                                     <WhatsappIcon size={32} round />
                                 </WhatsappShareButton>
                             </div>
-                            <img
-                                src={blog?.image}
+                            <Image
+                                src={blog?.image!}
                                 alt={blog?.title}
                                 className='object-cover hover:opacity-80 transition-opacity duration-300 w-full bg-center rounded'
                             />

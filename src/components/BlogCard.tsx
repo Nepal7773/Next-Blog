@@ -1,4 +1,5 @@
 import { BlogType } from '@/types/models'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { AiOutlineLink } from 'react-icons/ai'
@@ -8,8 +9,8 @@ export default function BlogCard({ blog }: { blog: BlogType }) {
     return (
         <div className='border dark:border-neutral-700 border-neutral-300 p-3 bg-neutral-200 dark:bg-neutral-900 rounded-md shadow-lg'>
             <div className='group relative'>
-                <img
-                    src={blog.image}
+                <Image
+                    src={blog.image!}
                     alt={blog.title}
                     loading="eager"
                     className="transition-all aspect-video duration-300 rounded-md bg-contain group-hover:blur-[2px]"

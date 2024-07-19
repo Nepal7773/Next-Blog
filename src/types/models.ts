@@ -17,7 +17,7 @@ export type BlogTypeWithComments = {
     title: string;
     description: string;
     content: string;
-    slug: string[];
+    slug: string;
     image?: string;
     likedBy?: string[];
     keywords?: string[];
