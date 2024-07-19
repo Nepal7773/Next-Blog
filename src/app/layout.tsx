@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import { AuthProvider } from "@/hooks/useAuth";
+import { ThemeProvider } from "next-themes";
+import { Slide, ToastContainer } from "react-toastify";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
+import Footer from "@/components/Footer";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +23,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class">
+          <AuthProvider>
+            <ToastContainer
+              position="bottom-right"
+              autoClose={2000}
+              theme="colored"
+              transition={Slide}
+              hideProgressBar={false}
+              closeOnClick
+              newestOnTop
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover={false}
+            />
+            {/* <ProgressBar
+              height="2px"
+              color="#ec4899"
+              options={{ showSpinner: false }}
+              shallowRouting
+            /> */}
+            <div className="bg-white text-black dark:bg-neutral-950  dark:text-gray-100 min-h-screen">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+          </AuthProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
