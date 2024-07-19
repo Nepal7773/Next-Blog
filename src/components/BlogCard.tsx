@@ -9,11 +9,11 @@ export default function BlogCard({ blog }: { blog: BlogType }) {
     return (
         <div className='border dark:border-neutral-700 border-neutral-300 p-3 bg-neutral-200 dark:bg-neutral-900 rounded-md shadow-lg'>
             <div className='group relative'>
-                <Image
+                <img
                     src={blog.image!}
                     alt={blog.title}
                     loading="eager"
-                    className="transition-all aspect-video duration-300 rounded-md bg-contain group-hover:blur-[2px]"
+                    className="transition-all aspect-video w-full duration-300 rounded-md object-cover group-hover:blur-[2px]"
                 />
                 <Link
                     href={`/blog/${blog.slug}`}

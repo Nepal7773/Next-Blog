@@ -142,7 +142,7 @@ export default function BlogPage({ slug }: { slug: string }) {
                                     <WhatsappIcon size={32} round />
                                 </WhatsappShareButton>
                             </div>
-                            <Image
+                            <img
                                 src={blog?.image!}
                                 alt={blog?.title}
                                 className='object-cover hover:opacity-80 transition-opacity duration-300 w-full bg-center rounded'

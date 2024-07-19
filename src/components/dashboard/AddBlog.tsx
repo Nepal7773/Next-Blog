@@ -26,13 +26,23 @@ export default function AddBlog({ editBlog }: { editBlog?: BlogFormType }) {
         e.preventDefault();
         console.log(blog);
         try {
-            let res = await toast.promise(BlogService.addBlog(blog), {
-                pending: "Adding Blog...",
-                success: "Blog Added Successfully",
-                error: "Error in Adding Blog"
-            });
-            console.log(res);
-            router.push("/blog/" + blog.slug);
+            if (editBlog) {
+                let res = await toast.promise(BlogService.updateBlog(editBlog.slug, blog), {
+                    pending: "Updating Blog...",
+                    success: "Blog Updated Successfully",
+                    error: "Error in Updating Blog"
+                });
+                console.log(res);
+                router.push("/blog/" + blog.slug);
+            } else {
+                let res = await toast.promise(BlogService.addBlog(blog), {
+                    pending: "Adding Blog...",
+                    success: "Blog Added Successfully",
+                    error: "Error in Adding Blog"
+                });
+                console.log(res);
+                router.push("/blog/" + blog.slug);
+            }
         } catch (err) {
             console.log(err);
         }
