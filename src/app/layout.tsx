@@ -8,6 +8,7 @@ import { Slide, ToastContainer } from "react-toastify";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 import Footer from "@/components/Footer";
 import "react-toastify/dist/ReactToastify.css";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,12 +40,7 @@ export default function RootLayout({
               draggable
               pauseOnHover={false}
             />
-            {/* <ProgressBar
-              height="2px"
-              color="#ec4899"
-              options={{ showSpinner: false }}
-              shallowRouting
-            /> */}
+            <NextTopLoader />
             <div className="bg-white text-black dark:bg-neutral-950  dark:text-gray-100 min-h-screen">
               <Navbar />
               {children}
